@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Particles from "react-tsparticles";
+import Particles from "react-particles-js";
 import Navigation from "./components/Navigation/Navigation.component";
 import Logo from "./components/Logo/Logo.component";
 import ImageTextForm from "./components/ImageTextForm/ImageTextForm.component";
@@ -53,6 +53,17 @@ const particlesComp = {
     },
   },
   detectRetina: true,
+};
+const particlesOptions = {
+  particles: {
+    number: {
+      value: 30,
+      density: {
+        enable: true,
+        value_area: 800,
+      },
+    },
+  },
 };
 const initialState = {
   input: "",
@@ -175,11 +186,8 @@ class App extends Component {
           signedOut={this.signedOut}
           changeRoute={this.changeRoute}
         />
-        <Particles
-          className="particles"
-          id="tsparticles"
-          options={particlesComp}
-        />
+
+        <Particles className="particles" params={particlesOptions} />
 
         {this.state.isSignedIn || this.state.route === "home" ? (
           <div>
